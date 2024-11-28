@@ -5,6 +5,11 @@ namespace LibraryDomain.Entities;
 /// </summary>
 public class BaseEntity
 {
+    public BaseEntity()
+    {
+        Id = Guid.NewGuid();
+    }
+
     /// <summary>
     /// Идентификатор сущности
     /// </summary>

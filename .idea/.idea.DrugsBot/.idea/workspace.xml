@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fd3113e-c5bd-4005-9103-544f1e934c0c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/LibraryDomain/Entities/DrugItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibraryDomain/Entities/FavouriteDrug.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibraryDomain/Entities/Profile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibraryDomain/ValueObjects/Country.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DrugsBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DrugsBot/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/BaseEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/BaseEntity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/Drug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/Drug.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/DrugStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/DrugStore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryDomain/ValueObjects/Adress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/ValueObjects/Adress.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +34,9 @@
     &quot;accountId&quot;: &quot;c1039874-50b0-4729-bd21-eb0cf16eb739&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/LibraryDomain/Entities/Country.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -68,7 +74,10 @@
       <option name="presentableId" value="Default" />
       <updated>1732648885999</updated>
       <workItem from="1732648887685" duration="1011000" />
-      <workItem from="1732699611964" duration="2925000" />
+      <workItem from="1732699611964" duration="3983000" />
+      <workItem from="1732798083605" duration="1429000" />
+      <workItem from="1732806144312" duration="2699000" />
+      <workItem from="1732810722250" duration="3554000" />
     </task>
     <task id="LOCAL-00001" summary="Занятие 2.">
       <option name="closed" value="true" />
@@ -78,7 +87,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732649071330</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Updating inline documentation and comments">
+      <option name="closed" value="true" />
+      <created>1732702688760</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1732702688760</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,6 +106,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Занятие 2." />
-    <option name="LAST_COMMIT_MESSAGE" value="Занятие 2." />
+    <MESSAGE value="Updating inline documentation and comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating inline documentation and comments" />
   </component>
 </project>

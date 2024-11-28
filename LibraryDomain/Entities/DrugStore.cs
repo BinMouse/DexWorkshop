@@ -7,7 +7,7 @@ namespace LibraryDomain.Entities;
 public class DrugStore : BaseEntity
 {
     /// <summary>
-    /// Конструктор
+    /// Конструктор с внутренней инициализацией пустого списка препаратов
     /// </summary>
     /// <param name="drugNetwork">Сеть аптек</param>
     /// <param name="number">Номер аптеки в реестре</param>
@@ -17,7 +17,24 @@ public class DrugStore : BaseEntity
         DrugNetwork = drugNetwork;
         Number = number;
         Adress = adress;
+        DrugItems = new List<DrugItem>();
     }
+    
+    /// <summary>
+    /// Конструктор с внешней инициализацией списка препаратов
+    /// </summary>
+    /// <param name="drugNetwork">Сеть аптек</param>
+    /// <param name="number">Номер аптеки в реестре</param>
+    /// <param name="adress">Адрес аптеки</param>
+    /// <param name="drugItems">Список препаратов, доступных в аптеке</param>
+    public DrugStore(string drugNetwork, int number, Adress adress, List<DrugItem> drugItems)
+    {
+        DrugNetwork = drugNetwork;
+        Number = number;
+        Adress = adress;
+        DrugItems = drugItems.Select(item => item).ToList();
+    }
+    
     /// <summary>
     /// Сеть аптек
     /// </summary>
@@ -32,4 +49,9 @@ public class DrugStore : BaseEntity
     /// Адрес аптеки
     /// </summary>
     public Adress Adress { get; private set; }
+    
+    /// <summary>
+    /// Список препаратов, доступных в аптеке
+    /// </summary>
+    public List<DrugItem> DrugItems { get; private set; }
 }
