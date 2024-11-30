@@ -26,10 +26,13 @@ public class Country : BaseEntity
     /// </summary>
     public string Code { get; private set; }
     
+    // Скрытый список для предотвращения модификации через методы 
+    private readonly List<Drug> _drugs;
+    
     /// <summary>
     /// Список препаратов
     /// </summary>
-    private ICollection<Drug> Drugs { get; } = new List<Drug>();
+    public IReadOnlyCollection<Drug> Drugs => _drugs.AsReadOnly();
 
     /// <summary>
     /// Добавить препарат в список производимых в стране
@@ -39,9 +42,9 @@ public class Country : BaseEntity
     public void AddDrug(Drug drug)
     {
         if (drug == null) throw new ArgumentNullException(nameof(drug));
-        if (!Drugs.Contains(drug))
+        if (!_drugs.Contains(drug))
         {
-            Drugs.Add(drug);
+            _drugs.Add(drug);
         }
     }
     
@@ -53,9 +56,9 @@ public class Country : BaseEntity
     public void RemoveDrug(Drug drug)
     {
         if (drug == null) throw new ArgumentNullException(nameof(drug));
-        if (Drugs.Contains(drug))
+        if (_drugs.Contains(drug))
         {
-            Drugs.Remove(drug);
+            _drugs.Remove(drug);
         }
     }
 }
