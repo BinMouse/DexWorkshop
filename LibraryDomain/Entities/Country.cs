@@ -38,7 +38,7 @@ public class Country : BaseEntity
     /// <exception cref="Exception">Передан пустой объект</exception>
     public void AddDrug(Drug drug)
     {
-        if (drug == null) throw new Exception("Drug is null");
+        if (drug == null) throw new ArgumentNullException(nameof(drug));
         if (!Drugs.Contains(drug))
         {
             Drugs.Add(drug);
@@ -52,7 +52,7 @@ public class Country : BaseEntity
     /// <exception cref="Exception">Передан пустой объект</exception>
     public void RemoveDrug(Drug drug)
     {
-        if (drug == null) throw new Exception("Drug is null");
+        if (drug == null) throw new ArgumentNullException(nameof(drug));
         if (Drugs.Contains(drug))
         {
             Drugs.Remove(drug);
