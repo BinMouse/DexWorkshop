@@ -21,24 +21,24 @@ public class FavouriteDrug
     public Guid ProfileId { get; private set; }
     
     /// <summary>
-    /// Идентификатор препарата
-    /// </summary>
-    public Guid DrugId { get; private set; }
-    
-    /// <summary>
-    /// Идентификатор аптеки
-    /// </summary>
-    public Guid DrugStoreId { get; private set; } 
-    
-    /// <summary>
     /// Навигационное свойство к профилю пользователя
     /// </summary>
     public Profile Profile { get; private set; } // nav
     
     /// <summary>
+    /// Идентификатор препарата
+    /// </summary>
+    public Guid DrugId { get; private set; }
+    
+    /// <summary>
     /// Навигационное свойство к препарату
     /// </summary>
     public Drug Drug { get; private set; } // nav
+    
+    /// <summary>
+    /// Идентификатор аптеки
+    /// </summary>
+    public Guid DrugStoreId { get; private set; } 
     
     /// <summary>
     /// Навигационное свойство к аптеке

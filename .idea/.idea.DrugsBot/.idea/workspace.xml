@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fd3113e-c5bd-4005-9103-544f1e934c0c" name="Changes" comment="">
+    <list default="true" id="4fd3113e-c5bd-4005-9103-544f1e934c0c" name="Changes" comment="Country.Drugs access correction&#10;Now drugs list have &quot;read only&quot; access. External modification using class methods is not possible.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DrugsBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DrugsBot/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/Country.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/Country.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/Drug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/Drug.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/DrugItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/DrugItem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/DrugStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/DrugStore.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/FavouriteDrug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/FavouriteDrug.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/Profile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/Profile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryDomain/ValueObjects/Country.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/Country.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +34,9 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/LibraryDomain/Entities/Country.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/RiderProjects/DrugsBot/LibraryDomain/Entities/Country.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/RiderProjects/DrugsBot/LibraryDomain/Entities/Country.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/RiderProjects/DrugsBot/LibraryDomain/Entities/Drug.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -78,7 +80,9 @@
       <workItem from="1732806144312" duration="2699000" />
       <workItem from="1732810722250" duration="3840000" />
       <workItem from="1732897680769" duration="108000" />
-      <workItem from="1732951555038" duration="2575000" />
+      <workItem from="1732951555038" duration="5305000" />
+      <workItem from="1732957660752" duration="2135000" />
+      <workItem from="1733044088636" duration="1409000" />
     </task>
     <task id="LOCAL-00001" summary="Занятие 2.">
       <option name="closed" value="true" />
@@ -104,7 +108,31 @@
       <option name="project" value="LOCAL" />
       <updated>1732814469723</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Country.sc Correction">
+      <option name="closed" value="true" />
+      <created>1732954257830</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732954257830</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Country.cs exception correction">
+      <option name="closed" value="true" />
+      <created>1732954492966</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732954492966</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Country.Drugs access correction&#10;Now drugs list have &quot;read only&quot; access. External modification using class methods is not possible.">
+      <option name="closed" value="true" />
+      <created>1732955682253</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732955682253</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,6 +145,9 @@
     <MESSAGE value="Занятие 2." />
     <MESSAGE value="Updating inline documentation and comments" />
     <MESSAGE value="Domain extension" />
-    <option name="LAST_COMMIT_MESSAGE" value="Domain extension" />
+    <MESSAGE value="Country.sc Correction" />
+    <MESSAGE value="Country.cs exception correction" />
+    <MESSAGE value="Country.Drugs access correction&#10;Now drugs list have &quot;read only&quot; access. External modification using class methods is not possible." />
+    <option name="LAST_COMMIT_MESSAGE" value="Country.Drugs access correction&#10;Now drugs list have &quot;read only&quot; access. External modification using class methods is not possible." />
   </component>
 </project>

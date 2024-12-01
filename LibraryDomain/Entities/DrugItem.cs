@@ -29,9 +29,19 @@ public class DrugItem : BaseEntity
     public Guid DrugId  { get; private set; }
     
     /// <summary>
+    /// Навигационное свойство к препарату
+    /// </summary>
+    public Drug Drug { get; private set; } // nav
+    
+    /// <summary>
     /// Идентификатор аптеки
     /// </summary>
     public Guid DrugStoreId  { get; private set; }
+    
+    /// <summary>
+    /// Навигационное свойство к аптеке
+    /// </summary>
+    public DrugStore Store { get; private set; } // nav
     
     /// <summary>
     /// Стоимость препарата
@@ -42,14 +52,4 @@ public class DrugItem : BaseEntity
     /// Количество препарата на складе
     /// </summary>
     public int Count { get; private set; }
-    
-    /// <summary>
-    /// Навигационное свойство к препарату
-    /// </summary>
-    public Drug Drug { get; private set; } // nav
-    
-    /// <summary>
-    /// Навигационное свойство к аптеке
-    /// </summary>
-    public DrugStore Store { get; private set; } // nav
 }

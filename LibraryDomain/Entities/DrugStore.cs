@@ -17,22 +17,7 @@ public class DrugStore : BaseEntity
         DrugNetwork = drugNetwork;
         Number = number;
         Adress = adress;
-        DrugItems = new List<DrugItem>();
-    }
-    
-    /// <summary>
-    /// Конструктор с внешней инициализацией списка препаратов
-    /// </summary>
-    /// <param name="drugNetwork">Сеть аптек</param>
-    /// <param name="number">Номер аптеки в реестре</param>
-    /// <param name="adress">Адрес аптеки</param>
-    /// <param name="drugItems">Список препаратов, доступных в аптеке</param>
-    public DrugStore(string drugNetwork, int number, Adress adress, List<DrugItem> drugItems)
-    {
-        DrugNetwork = drugNetwork;
-        Number = number;
-        Adress = adress;
-        DrugItems = drugItems.Select(item => item).ToList();
+        _drugItems = new List<DrugItem>();
     }
     
     /// <summary>
@@ -49,9 +34,40 @@ public class DrugStore : BaseEntity
     /// Адрес аптеки
     /// </summary>
     public Adress Adress { get; private set; }
-    
+
+    // Скрытый список связей
+    private readonly List<DrugItem> _drugItems;
+
     /// <summary>
     /// Список препаратов, доступных в аптеке
     /// </summary>
-    public List<DrugItem> DrugItems { get; private set; }
+    public IReadOnlyCollection<DrugItem> DrugItems  => _drugItems.AsReadOnly();
+    
+    /// <summary>
+    /// Добавление связи с препаратом
+    /// </summary>
+    /// <param name="item">Сущность связи</param>
+    /// <exception cref="ArgumentNullException">Передан пустой объект</exception>
+    public void AddDrugItem(DrugItem item)
+    {
+        if (item is null) throw new ArgumentNullException(nameof(item));
+        if (!_drugItems.Contains(item))
+        {
+            _drugItems.Add(item);
+        }
+    }
+    
+    /// <summary>
+    /// Удаление связи с препаратом
+    /// </summary>
+    /// <param name="item">Сущность связи</param>
+    /// <exception cref="ArgumentNullException">Передан пустой объект</exception>
+    public void RemoveDrugItem(DrugItem item)
+    {
+        if (item is null) throw new ArgumentNullException(nameof(item));
+        if (_drugItems.Contains(item))
+        {
+            _drugItems.Remove(item);
+        } 
+    }
 }

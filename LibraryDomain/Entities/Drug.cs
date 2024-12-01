@@ -1,5 +1,3 @@
-using LibraryDomain.ValueObjects;
-
 namespace LibraryDomain.Entities;
 
 /// <summary>
@@ -12,31 +10,14 @@ public class Drug : BaseEntity
     /// </summary>
     /// <param name="name">Имя препарата</param>
     /// <param name="manufacturer">Производитель</param>
-    /// <param name="сountryсodeid">Код страны производителя</param>
     /// <param name="country">Ссылка на страну производителя</param>
-    public Drug(string name, string manufacturer, string сountryсodeid, Country country)
+    public Drug(string name, string manufacturer, Country country)
     {
         Name = name;
         Manufacturer = manufacturer;
-        CountryCodeId = сountryсodeid;
+        CountryCodeId = country.Code;
         Country = country;
-        DrugItems = new List<DrugItem>();
-    }
-    
-    /// <summary>
-    /// Конструктор c передачей коллекции связей с аптеками
-    /// <param name="name">Имя препарата</param>
-    /// <param name="manufacturer">Производитель</param>
-    /// <param name="сountryсodeid">Код страны производителя</param>
-    /// <param name="country">Ссылка на страну производителя</param>
-    /// <param name="drugItems">Список связей с аптеками</param>
-    public Drug(string name, string manufacturer, string сountryсodeid, Country country, List<DrugItem> drugItems)
-    {
-        Name = name;
-        Manufacturer = manufacturer;
-        CountryCodeId = сountryсodeid;
-        Country = country;
-        DrugItems = drugItems.Select(item => item).ToList();
+        _drugItems = new List<DrugItem>();
     }
     
     /// <summary>
@@ -52,15 +33,47 @@ public class Drug : BaseEntity
     /// <summary>
     /// Код страны производителя
     /// </summary>
-    public string CountryCodeId { get; private set; }
+    public string CountryCodeId { get; private set; } 
     
     /// <summary>
     /// Страна-производитель
     /// </summary>
-    public Country Country { get; private set; }
+    public Country Country { get; private set; } // nav
     
+    // Скрытый список связей, закрытый от внешних изменений
+    private readonly List<DrugItem> _drugItems;
+
     /// <summary>
     /// Список связей между препаратом и аптеками
     /// </summary>
-    public List<DrugItem> DrugItems { get; private set; }
+    public IReadOnlyCollection<DrugItem> DrugItems => _drugItems.AsReadOnly(); // nav
+
+    
+    /// <summary>
+    /// Добавление связи с аптекой
+    /// </summary>
+    /// <param name="item">Сущность связи</param>
+    /// <exception cref="ArgumentNullException">Передан пустой объект</exception>
+    public void AddDrugItem(DrugItem item)
+    {
+        if (item is null) throw new ArgumentNullException(nameof(item));
+        if (!_drugItems.Contains(item))
+        {
+            _drugItems.Add(item);
+        }
+    }
+    
+    /// <summary>
+    /// Удаление связи с аптекой
+    /// </summary>
+    /// <param name="item">Сущность связи</param>
+    /// <exception cref="ArgumentNullException">Передан пустой объект</exception>
+    public void RemoveDrugItem(DrugItem item)
+    {
+        if (item is null) throw new ArgumentNullException(nameof(item));
+        if (_drugItems.Contains(item))
+        {
+            _drugItems.Remove(item);
+        } 
+    }
 }

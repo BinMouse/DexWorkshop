@@ -14,6 +14,7 @@ public class Country : BaseEntity
     {
         Name = name;
         Code = code;
+        _drugs = new List<Drug>();
     }
 
     /// <summary>
@@ -41,7 +42,7 @@ public class Country : BaseEntity
     /// <exception cref="Exception">Передан пустой объект</exception>
     public void AddDrug(Drug drug)
     {
-        if (drug == null) throw new ArgumentNullException(nameof(drug));
+        if (drug is null) throw new ArgumentNullException(nameof(drug));
         if (!_drugs.Contains(drug))
         {
             _drugs.Add(drug);
@@ -55,7 +56,7 @@ public class Country : BaseEntity
     /// <exception cref="Exception">Передан пустой объект</exception>
     public void RemoveDrug(Drug drug)
     {
-        if (drug == null) throw new ArgumentNullException(nameof(drug));
+        if (drug is null) throw new ArgumentNullException(nameof(drug));
         if (_drugs.Contains(drug))
         {
             _drugs.Remove(drug);
