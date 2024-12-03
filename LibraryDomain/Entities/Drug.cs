@@ -1,3 +1,6 @@
+using Ardalis.GuardClauses;
+using LibraryDomain.Validators;
+
 namespace LibraryDomain.Entities;
 
 /// <summary>
@@ -13,11 +16,14 @@ public class Drug : BaseEntity
     /// <param name="country">Ссылка на страну производителя</param>
     public Drug(string name, string manufacturer, Country country)
     {
-        Name = name;
-        Manufacturer = manufacturer;
-        CountryCodeId = country.Code;
+        Name = Guard.Against.NullOrWhiteSpace(name, nameof(name));
+        Manufacturer = Guard.Against.NullOrWhiteSpace(manufacturer, nameof(manufacturer));
+        CountryCodeId = Guard.Against.NullOrWhiteSpace(country.Code, nameof(country.Code));
         Country = country;
         _drugItems = new List<DrugItem>();
+
+        var validator = new DrugValidator();
+        validator.Validate(this);
     }
     
     /// <summary>
