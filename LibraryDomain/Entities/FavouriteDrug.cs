@@ -1,3 +1,6 @@
+using Ardalis.GuardClauses;
+using LibraryDomain.Primitives;
+
 namespace LibraryDomain.Entities;
 
 /// <summary>
@@ -45,9 +48,17 @@ public class FavouriteDrug
     
     public FavouriteDrug(Profile profile, Drug drug, DrugStore store)
     {
-        Profile = profile;
-        Drug = drug;
-        Store = store;
+        try
+        {
+            Profile = Guard.Against.Null(profile, nameof(profile));
+            Drug = Guard.Against.Null(drug, nameof(drug));
+            Store = Guard.Against.Null(store, nameof(store));
+        }
+        catch (ArgumentNullException ex)
+        {
+            Console.WriteLine(ValidationMessage.NullException);
+            throw;
+        }
         ProfileId = profile.Id;
         DrugId = drug.Id;
         DrugStoreId = store.Id;

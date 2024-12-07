@@ -1,4 +1,5 @@
 using Ardalis.GuardClauses;
+using LibraryDomain.Primitives;
 using LibraryDomain.Validators;
 
 namespace LibraryDomain.Entities;
@@ -41,8 +42,16 @@ public class Country : BaseEntity
     /// <param name="code">Код страны</param>
     public Country(string name, string code)
     {
-        Name = Guard.Against.NullOrWhiteSpace(name, nameof(name));
-        Code = Guard.Against.NullOrWhiteSpace(code, nameof(code));
+        try
+        {
+            Name = Guard.Against.NullOrWhiteSpace(name, nameof(name));
+            Code = Guard.Against.NullOrWhiteSpace(code, nameof(code));
+        }
+        catch (ArgumentNullException e)
+        {
+            Console.WriteLine(ValidationMessage.NullException);
+            throw;
+        }
         
         var validator = new CountryValidator();
         validator.Validate(this);

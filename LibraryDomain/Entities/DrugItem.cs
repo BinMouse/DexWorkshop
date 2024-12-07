@@ -1,4 +1,5 @@
 using Ardalis.GuardClauses;
+using LibraryDomain.Primitives;
 using LibraryDomain.Validators;
 
 namespace LibraryDomain.Entities;
@@ -55,10 +56,24 @@ public class DrugItem : BaseEntity
     /// <param name="cost">Стоимость препарата в аптеке</param>
     public DrugItem(Drug drug, DrugStore store, int count, decimal cost)
     {
-        Drug = Guard.Against.Null(drug, nameof(drug));
-        Store = Guard.Against.Null(store, nameof(store));
-        Count = Guard.Against.Negative(count, nameof(count));
-        Cost = Guard.Against.NegativeOrZero(cost, nameof(cost));
+        try
+        {
+            Drug = Guard.Against.Null(drug, nameof(drug));
+            Store = Guard.Against.Null(store, nameof(store));
+            Count = Guard.Against.Negative(count, nameof(count));
+            Cost = Guard.Against.NegativeOrZero(cost, nameof(cost));
+        }
+        catch (ArgumentNullException ex)
+        {
+            Console.WriteLine(ValidationMessage.NullException);
+            throw;
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine(ValidationMessage.IncorrectDataInput);
+            throw;
+        }
+        
         DrugId = drug.Id;
         DrugStoreId = store.Id;
         

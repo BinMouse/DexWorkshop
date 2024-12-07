@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fd3113e-c5bd-4005-9103-544f1e934c0c" name="Changes" comment="Code correction &amp; First Validation">
-      <change afterPath="$PROJECT_DIR$/LibraryDomain/Validators/AdressValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryDomain/Validators/CountryValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryDomain/Validators/DrugItemValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryDomain/Validators/DrugStoreValidator.cs" afterDir="false" />
+    <list default="true" id="4fd3113e-c5bd-4005-9103-544f1e934c0c" name="Changes" comment="System and business validation">
+      <change afterPath="$PROJECT_DIR$/LibraryDomain/Validators/ProfileValidator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DrugsBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DrugsBot/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/Country.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/Country.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/Drug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/Drug.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/DrugItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/DrugItem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/DrugStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/DrugStore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/FavouriteDrug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/FavouriteDrug.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/Profile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/Profile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryDomain/Primitives/ValidationMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Primitives/ValidationMessage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryDomain/Validators/DrugValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Validators/DrugValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryDomain/ValueObjects/Adress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/ValueObjects/Adress.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +95,7 @@
       <workItem from="1732957660752" duration="2135000" />
       <workItem from="1733044088636" duration="1737000" />
       <workItem from="1733223218991" duration="4144000" />
-      <workItem from="1733574936193" duration="12373000" />
+      <workItem from="1733574936193" duration="14213000" />
     </task>
     <task id="LOCAL-00001" summary="Занятие 2.">
       <option name="closed" value="true" />
@@ -171,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733577868343</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="System and business validation">
+      <option name="closed" value="true" />
+      <created>1733589894204</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1733589894204</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +207,7 @@
     <MESSAGE value="Navigation properties realisation&#10;An attempt to correctly implement navigation properties." />
     <MESSAGE value="Validator" />
     <MESSAGE value="Code correction &amp; First Validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code correction &amp; First Validation" />
+    <MESSAGE value="System and business validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="System and business validation" />
   </component>
 </project>
