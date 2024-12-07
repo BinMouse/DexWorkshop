@@ -3,7 +3,7 @@ namespace LibraryDomain.ValueObjects;
 /// <summary>
 /// Адрес
 /// </summary>
-public class Adress
+public class Adress : BaseValueObject
 {
     /// <summary>
     /// Конструктор

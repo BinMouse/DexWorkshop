@@ -5,17 +5,9 @@ namespace LibraryDomain.Entities;
 /// </summary>
 public class Country : BaseEntity
 {
-    /// <summary>
-    /// Конструктор с внутренней инициализацией пустой коллекции препаратов
-    /// </summary>
-    /// <param name="name">Название страны</param>
-    /// <param name="code">Код страны</param>
-    public Country(string name, string code)
-    {
-        Name = name;
-        Code = code;
-        _drugs = new List<Drug>();
-    }
+    /*
+     *  Поля -----------------------------------------------------------------------------------------------------------
+     */
 
     /// <summary>
     /// Название страны
@@ -34,6 +26,26 @@ public class Country : BaseEntity
     /// Список препаратов
     /// </summary>
     public IReadOnlyCollection<Drug> Drugs => _drugs.AsReadOnly();
+    
+    /*
+     *  Конструктор ----------------------------------------------------------------------------------------------------
+     */
+    
+    /// <summary>
+    /// Конструктор с внутренней инициализацией пустой коллекции препаратов
+    /// </summary>
+    /// <param name="name">Название страны</param>
+    /// <param name="code">Код страны</param>
+    public Country(string name, string code)
+    {
+        Name = name;
+        Code = code;
+        _drugs = new List<Drug>();
+    }
+    
+    /*
+     *  Методы ---------------------------------------------------------------------------------------------------------
+     */
 
     /// <summary>
     /// Добавить препарат в список производимых в стране

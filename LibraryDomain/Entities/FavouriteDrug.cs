@@ -5,16 +5,10 @@ namespace LibraryDomain.Entities;
 /// </summary>
 public class FavouriteDrug
 {
-    public FavouriteDrug(Profile profile, Drug drug, DrugStore store)
-    {
-        Profile = profile;
-        Drug = drug;
-        Store = store;
-        ProfileId = profile.Id;
-        DrugId = drug.Id;
-        DrugStoreId = store.Id;
-    }
-
+    /*
+     *  Поля -----------------------------------------------------------------------------------------------------------
+     */
+    
     /// <summary>
     /// Идентификатор профиля пользователя
     /// </summary>
@@ -44,4 +38,19 @@ public class FavouriteDrug
     /// Навигационное свойство к аптеке
     /// </summary>
     public DrugStore Store { get; private set; } // nav
+    
+    /*
+     *  Конструкторы ---------------------------------------------------------------------------------------------------
+     */
+    
+    public FavouriteDrug(Profile profile, Drug drug, DrugStore store)
+    {
+        Profile = profile;
+        Drug = drug;
+        Store = store;
+        ProfileId = profile.Id;
+        DrugId = drug.Id;
+        DrugStoreId = store.Id;
+    }
+
 }

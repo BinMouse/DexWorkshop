@@ -7,19 +7,9 @@ namespace LibraryDomain.Entities;
 /// </summary>
 public class Profile : BaseEntity
 {
-    /// <summary>
-    /// Конструктор
-    /// </summary>
-    /// <param name="firstName"></param>
-    /// <param name="lastName"></param>
-    /// <param name="email"></param>
-    public Profile(string firstName, string lastName, string email)
-    {
-        Firstname = firstName;
-        Lastname = lastName;
-        Email = email;
-        _favouriteDrugs = new List<FavouriteDrug>();
-    }
+    /*
+     *  Поля -----------------------------------------------------------------------------------------------------------
+     */
     
     /// <summary>
     /// Имя пользователя
@@ -42,8 +32,33 @@ public class Profile : BaseEntity
     /// </summary>
     public IReadOnlyCollection<FavouriteDrug> FavouriteDrugs => _favouriteDrugs.AsReadOnly();
     
+    /// <summary>
+    /// Адрес покупателя
+    /// </summary>
     public Adress Adress { get; private set; }
     
+    /*
+     *  Конструкторы ---------------------------------------------------------------------------------------------------
+     */
+    
+    /// <summary>
+    /// Конструктор
+    /// </summary>
+    /// <param name="firstName"></param>
+    /// <param name="lastName"></param>
+    /// <param name="email"></param>
+    public Profile(string firstName, string lastName, string email)
+    {
+        Firstname = firstName;
+        Lastname = lastName;
+        Email = email;
+        _favouriteDrugs = new List<FavouriteDrug>();
+    }
+    
+    /*
+     *  Методы ---------------------------------------------------------------------------------------------------------
+     */
+
     /// <summary>
     /// Добавление препарата в избранное
     /// </summary>

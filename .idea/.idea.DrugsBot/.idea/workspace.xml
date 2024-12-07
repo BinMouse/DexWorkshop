@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fd3113e-c5bd-4005-9103-544f1e934c0c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LibraryDomain/Primitives/ValidationMessage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryDomain/Validators/DrugValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryDomain/ValueObjects/BaseValueObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DrugsBot/.idea/shelf/Uncommitted_changes_before_Update_at_27_11_2024_12_20_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DrugsBot/.idea/shelf/Uncommitted_changes_before_Update_at_27_11_2024_12_20__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DrugsBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DrugsBot/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/BaseEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/BaseEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/Country.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/Country.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/Drug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/Drug.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryDomain/LibraryDomain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/LibraryDomain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/DrugItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/DrugItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/DrugStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/DrugStore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/FavouriteDrug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/FavouriteDrug.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/Profile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/Profile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Primitives/ValidationMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Primitives/ValidationMessage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Validators/DrugValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Validators/DrugValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/ValueObjects/Adress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/ValueObjects/Adress.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,10 +49,10 @@
     <setting file="mock://C:/Users/user/RiderProjects/DrugsBot/LibraryDomain/Entities/Country.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/user/RiderProjects/DrugsBot/LibraryDomain/Entities/Drug.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -56,24 +63,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "otherBranch",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Develop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "directory"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -91,7 +98,8 @@
       <workItem from="1732951555038" duration="5305000" />
       <workItem from="1732957660752" duration="2135000" />
       <workItem from="1733044088636" duration="1737000" />
-      <workItem from="1733223218991" duration="3795000" />
+      <workItem from="1733223218991" duration="4144000" />
+      <workItem from="1733574936193" duration="2795000" />
     </task>
     <task id="LOCAL-00001" summary="Занятие 2.">
       <option name="closed" value="true" />
@@ -149,7 +157,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733045519122</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Validator">
+      <option name="closed" value="true" />
+      <created>1733227147670</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733227147670</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +193,7 @@
     <MESSAGE value="Country.cs exception correction" />
     <MESSAGE value="Country.Drugs access correction&#10;Now drugs list have &quot;read only&quot; access. External modification using class methods is not possible." />
     <MESSAGE value="Navigation properties realisation&#10;An attempt to correctly implement navigation properties." />
-    <option name="LAST_COMMIT_MESSAGE" value="Navigation properties realisation&#10;An attempt to correctly implement navigation properties." />
+    <MESSAGE value="Validator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Validator" />
   </component>
 </project>
