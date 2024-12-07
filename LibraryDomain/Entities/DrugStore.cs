@@ -1,3 +1,5 @@
+using Ardalis.GuardClauses;
+using LibraryDomain.Validators;
 using LibraryDomain.ValueObjects;
 
 namespace LibraryDomain.Entities;
@@ -45,9 +47,13 @@ public class DrugStore : BaseEntity
     /// <param name="adress">Адрес аптеки</param>
     public DrugStore(string drugNetwork, int number, Adress adress)
     {
-        DrugNetwork = drugNetwork;
-        Number = number;
-        Adress = adress;
+        DrugNetwork = Guard.Against.NullOrWhiteSpace(drugNetwork, nameof(drugNetwork));
+        Number = Guard.Against.NegativeOrZero(number, nameof(number));
+        Adress = Guard.Against.Null(adress, nameof(adress));
+
+        var validator = new DrugStoreValidator();
+        validator.Validate(this);
+        
         _drugItems = new List<DrugItem>();
     }
     
