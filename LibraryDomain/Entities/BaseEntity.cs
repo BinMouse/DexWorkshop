@@ -5,10 +5,9 @@ namespace LibraryDomain.Entities;
 /// </summary>
 public class BaseEntity
 {
-    public BaseEntity()
-    {
-        Id = Guid.NewGuid();
-    }
+    /*
+     *  Поля -----------------------------------------------------------------------------------------------------------
+     */
 
     /// <summary>
     /// Идентификатор сущности
@@ -20,6 +19,19 @@ public class BaseEntity
     /// </summary>
     public DateTime CreatedDate { get; set; }
     
+    /*
+     *  Конструкторы ---------------------------------------------------------------------------------------------------
+     */
+    
+    public BaseEntity()
+    {
+        Id = Guid.NewGuid();
+    }
+    
+    /*
+     *  Методы ---------------------------------------------------------------------------------------------------------
+     */
+    
     /// <summary>
     /// Проверка сущности на равенство. Принимает в себя любой объект. 
     /// </summary>
@@ -27,13 +39,18 @@ public class BaseEntity
     /// <returns>True - если id сущностей равны, false - если нет. Если тип объекта не совпадает или передан null, возвращает false.</returns>
     public override bool Equals(object? obj)
     {
+        if (ReferenceEquals(this, obj))
+        {
+            return true;
+        }
+
         if (obj is null || obj.GetType() != GetType())
         {
             return false;
         }
-        var id = ((BaseEntity)obj).Id;
         
-        return id == Id;
+        var other = (BaseEntity)obj;
+        return Id.Equals(other.Id);
     }
 
     
@@ -60,12 +77,10 @@ public class BaseEntity
     /// <param name="left">Левая сущность выражения</param>
     /// <param name="right">Правая сущность выражения</param>
     /// <returns>true - если сущности равны и false - если нет</returns>
-    public static bool operator ==(BaseEntity left, BaseEntity right)
+    public static bool operator ==(BaseEntity? left, BaseEntity? right)
     {
-        if (left is null || right is null)
-        {
-            return false;
-        }
+        if (left is null)
+            return right is null;
         
         return left.Equals(right);
     }
@@ -76,13 +91,8 @@ public class BaseEntity
     /// <param name="left">Левая сущность выражения</param>
     /// <param name="right">Правая сущность выражения</param>
     /// <returns>false - если сущности равны и true - если нет</returns>
-    public static bool operator !=(BaseEntity left, BaseEntity right)
+    public static bool operator !=(BaseEntity? left, BaseEntity? right)
     {
-        if (left is null || right is null)
-        {
-            return false;
-        }
-        
-        return !(left==right);
+        return !(left == right);
     }
 }

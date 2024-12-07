@@ -1,3 +1,7 @@
+using Ardalis.GuardClauses;
+using LibraryDomain.Primitives;
+using LibraryDomain.Validators;
+
 namespace LibraryDomain.Entities;
 
 /// <summary>
@@ -5,20 +9,9 @@ namespace LibraryDomain.Entities;
 /// </summary>
 public class Drug : BaseEntity
 {
-    /// <summary>
-    /// Конструктор с внутренней инициализацией пустой коллекции связей с аптеками
-    /// </summary>
-    /// <param name="name">Имя препарата</param>
-    /// <param name="manufacturer">Производитель</param>
-    /// <param name="country">Ссылка на страну производителя</param>
-    public Drug(string name, string manufacturer, Country country)
-    {
-        Name = name;
-        Manufacturer = manufacturer;
-        CountryCodeId = country.Code;
-        Country = country;
-        _drugItems = new List<DrugItem>();
-    }
+    /*
+     *  Поля -----------------------------------------------------------------------------------------------------------
+     */
     
     /// <summary>
     /// Имя препарата
@@ -48,6 +41,40 @@ public class Drug : BaseEntity
     /// </summary>
     public IReadOnlyCollection<DrugItem> DrugItems => _drugItems.AsReadOnly(); // nav
 
+    /*
+     *  Конструктор ---------------------------------------------------------------------------------------------------
+     */
+    
+    /// <summary>
+    /// Конструктор с внутренней инициализацией пустой коллекции связей с аптеками
+    /// </summary>
+    /// <param name="name">Имя препарата</param>
+    /// <param name="manufacturer">Производитель</param>
+    /// <param name="country">Ссылка на страну производителя</param>
+    public Drug(string name, string manufacturer, Country country)
+    {
+        try
+        {
+            Name = Guard.Against.NullOrWhiteSpace(name, nameof(name));
+            Manufacturer = Guard.Against.NullOrWhiteSpace(manufacturer, nameof(manufacturer));
+            Country = Guard.Against.Null(country, nameof(country));
+            CountryCodeId = Guard.Against.NullOrWhiteSpace(country.Code, nameof(country.Code));
+        }
+        catch (ArgumentNullException ex)
+        {
+            Console.WriteLine(ValidationMessage.NullException);
+            throw;
+        }
+
+        var validator = new DrugValidator();
+        validator.Validate(this);
+        
+        _drugItems = new List<DrugItem>();
+    }
+    
+    /*
+     *  Методы ---------------------------------------------------------------------------------------------------------
+     */
     
     /// <summary>
     /// Добавление связи с аптекой

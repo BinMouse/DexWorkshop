@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fd3113e-c5bd-4005-9103-544f1e934c0c" name="Changes" comment="Country.Drugs access correction&#10;Now drugs list have &quot;read only&quot; access. External modification using class methods is not possible.">
+    <list default="true" id="4fd3113e-c5bd-4005-9103-544f1e934c0c" name="Changes" comment="Enhancement of validation">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DrugsBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DrugsBot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/Country.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/Country.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/Drug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/Drug.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/DrugItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/DrugItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/DrugStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/DrugStore.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/FavouriteDrug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/FavouriteDrug.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryDomain/Entities/Profile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Entities/Profile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Primitives/ValidationMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Primitives/ValidationMessage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Validators/AdressValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Validators/AdressValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Validators/CountryValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Validators/CountryValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Validators/DrugItemValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Validators/DrugItemValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Validators/DrugStoreValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Validators/DrugStoreValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Validators/DrugValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Validators/DrugValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryDomain/Validators/ProfileValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryDomain/Validators/ProfileValidator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +22,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -38,6 +46,10 @@
     <setting file="mock://C:/Users/user/RiderProjects/DrugsBot/LibraryDomain/Entities/Country.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/user/RiderProjects/DrugsBot/LibraryDomain/Entities/Drug.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -52,7 +64,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Develop&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -82,7 +94,9 @@
       <workItem from="1732897680769" duration="108000" />
       <workItem from="1732951555038" duration="5305000" />
       <workItem from="1732957660752" duration="2135000" />
-      <workItem from="1733044088636" duration="1409000" />
+      <workItem from="1733044088636" duration="1737000" />
+      <workItem from="1733223218991" duration="4144000" />
+      <workItem from="1733574936193" duration="14643000" />
     </task>
     <task id="LOCAL-00001" summary="Занятие 2.">
       <option name="closed" value="true" />
@@ -132,7 +146,47 @@
       <option name="project" value="LOCAL" />
       <updated>1732955682253</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Navigation properties realisation&#10;An attempt to correctly implement navigation properties.">
+      <option name="closed" value="true" />
+      <created>1733045519122</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733045519122</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Validator">
+      <option name="closed" value="true" />
+      <created>1733227147670</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733227147670</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Code correction &amp; First Validation">
+      <option name="closed" value="true" />
+      <created>1733577868343</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1733577868343</updated>
+    </task>
+    <task id="LOCAL-00010" summary="System and business validation">
+      <option name="closed" value="true" />
+      <created>1733589894204</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1733589894204</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Enhancement of validation">
+      <option name="closed" value="true" />
+      <created>1733591808884</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1733591808884</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +194,17 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Занятие 2." />
@@ -148,6 +213,11 @@
     <MESSAGE value="Country.sc Correction" />
     <MESSAGE value="Country.cs exception correction" />
     <MESSAGE value="Country.Drugs access correction&#10;Now drugs list have &quot;read only&quot; access. External modification using class methods is not possible." />
-    <option name="LAST_COMMIT_MESSAGE" value="Country.Drugs access correction&#10;Now drugs list have &quot;read only&quot; access. External modification using class methods is not possible." />
+    <MESSAGE value="Navigation properties realisation&#10;An attempt to correctly implement navigation properties." />
+    <MESSAGE value="Validator" />
+    <MESSAGE value="Code correction &amp; First Validation" />
+    <MESSAGE value="System and business validation" />
+    <MESSAGE value="Enhancement of validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enhancement of validation" />
   </component>
 </project>

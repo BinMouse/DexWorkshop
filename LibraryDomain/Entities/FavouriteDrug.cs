@@ -1,3 +1,6 @@
+using Ardalis.GuardClauses;
+using LibraryDomain.Primitives;
+
 namespace LibraryDomain.Entities;
 
 /// <summary>
@@ -5,16 +8,10 @@ namespace LibraryDomain.Entities;
 /// </summary>
 public class FavouriteDrug
 {
-    public FavouriteDrug(Profile profile, Drug drug, DrugStore store)
-    {
-        Profile = profile;
-        Drug = drug;
-        Store = store;
-        ProfileId = profile.Id;
-        DrugId = drug.Id;
-        DrugStoreId = store.Id;
-    }
-
+    /*
+     *  Поля -----------------------------------------------------------------------------------------------------------
+     */
+    
     /// <summary>
     /// Идентификатор профиля пользователя
     /// </summary>
@@ -44,4 +41,33 @@ public class FavouriteDrug
     /// Навигационное свойство к аптеке
     /// </summary>
     public DrugStore Store { get; private set; } // nav
+    
+    /*
+     *  Конструкторы ---------------------------------------------------------------------------------------------------
+     */
+    
+    /// <summary>
+    /// Конструктор
+    /// </summary>
+    /// <param name="profile">Профиль</param>
+    /// <param name="drug">Препарат</param>
+    /// <param name="store">Аптека</param>
+    public FavouriteDrug(Profile profile, Drug drug, DrugStore store)
+    {
+        try
+        {
+            Profile = Guard.Against.Null(profile, nameof(profile));
+            Drug = Guard.Against.Null(drug, nameof(drug));
+            Store = Guard.Against.Null(store, nameof(store));
+        }
+        catch (ArgumentNullException ex)
+        {
+            Console.WriteLine(ValidationMessage.NullException);
+            throw;
+        }
+        ProfileId = profile.Id;
+        DrugId = drug.Id;
+        DrugStoreId = store.Id;
+    }
+
 }

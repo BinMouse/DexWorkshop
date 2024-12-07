@@ -1,3 +1,7 @@
+using Ardalis.GuardClauses;
+using LibraryDomain.Primitives;
+using LibraryDomain.Validators;
+
 namespace LibraryDomain.Entities;
 
 /// <summary>
@@ -5,24 +9,10 @@ namespace LibraryDomain.Entities;
 /// </summary>
 public class DrugItem : BaseEntity
 {
+    /*
+     *  Поля -----------------------------------------------------------------------------------------------------------
+     */
     
-    /// <summary>
-    /// Конструктор
-    /// </summary>
-    /// <param name="drug">Перпарат</param>
-    /// <param name="store">Аптека</param>
-    /// <param name="count">Количество препарата в аптеке</param>
-    /// <param name="cost">Стоимость препарата в аптеке</param>
-    public DrugItem(Drug drug, DrugStore store, int count, decimal cost)
-    {
-        Drug = drug;
-        Store = store;
-        Count = count;
-        Cost = cost;
-        DrugId = drug.Id;
-        DrugStoreId = store.Id;
-    }
-
     /// <summary>
     /// Идентификатор препарата
     /// </summary>
@@ -52,4 +42,42 @@ public class DrugItem : BaseEntity
     /// Количество препарата на складе
     /// </summary>
     public int Count { get; private set; }
+    
+    /*
+     *  Конструктор ----------------------------------------------------------------------------------------------------
+     */
+    
+    /// <summary>
+    /// Конструктор
+    /// </summary>
+    /// <param name="drug">Перпарат</param>
+    /// <param name="store">Аптека</param>
+    /// <param name="count">Количество препарата в аптеке</param>
+    /// <param name="cost">Стоимость препарата в аптеке</param>
+    public DrugItem(Drug drug, DrugStore store, int count, decimal cost)
+    {
+        try
+        {
+            Drug = Guard.Against.Null(drug, nameof(drug));
+            Store = Guard.Against.Null(store, nameof(store));
+            Count = Guard.Against.Negative(count, nameof(count));
+            Cost = Guard.Against.NegativeOrZero(cost, nameof(cost));
+        }
+        catch (ArgumentNullException ex)
+        {
+            Console.WriteLine(ValidationMessage.NullException);
+            throw;
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine(ValidationMessage.IncorrectDataInput);
+            throw;
+        }
+        
+        DrugId = drug.Id;
+        DrugStoreId = store.Id;
+        
+        var validator = new DrugItemValidator();
+        validator.Validate(this);
+    }
 }

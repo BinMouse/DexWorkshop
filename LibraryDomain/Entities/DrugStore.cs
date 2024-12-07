@@ -1,3 +1,6 @@
+using Ardalis.GuardClauses;
+using LibraryDomain.Primitives;
+using LibraryDomain.Validators;
 using LibraryDomain.ValueObjects;
 
 namespace LibraryDomain.Entities;
@@ -6,19 +9,9 @@ namespace LibraryDomain.Entities;
 /// </summary>
 public class DrugStore : BaseEntity
 {
-    /// <summary>
-    /// Конструктор с внутренней инициализацией пустого списка препаратов
-    /// </summary>
-    /// <param name="drugNetwork">Сеть аптек</param>
-    /// <param name="number">Номер аптеки в реестре</param>
-    /// <param name="adress">Адрес аптеки</param>
-    public DrugStore(string drugNetwork, int number, Adress adress)
-    {
-        DrugNetwork = drugNetwork;
-        Number = number;
-        Adress = adress;
-        _drugItems = new List<DrugItem>();
-    }
+    /*
+     *  Поля -----------------------------------------------------------------------------------------------------------
+     */
     
     /// <summary>
     /// Сеть аптек
@@ -42,6 +35,45 @@ public class DrugStore : BaseEntity
     /// Список препаратов, доступных в аптеке
     /// </summary>
     public IReadOnlyCollection<DrugItem> DrugItems  => _drugItems.AsReadOnly();
+    
+    /*
+     *  Конструктор ----------------------------------------------------------------------------------------------------
+     */
+    
+    /// <summary>
+    /// Конструктор с внутренней инициализацией пустого списка препаратов
+    /// </summary>
+    /// <param name="drugNetwork">Сеть аптек</param>
+    /// <param name="number">Номер аптеки в реестре</param>
+    /// <param name="adress">Адрес аптеки</param>
+    public DrugStore(string drugNetwork, int number, Adress adress)
+    {
+        try
+        {
+            DrugNetwork = Guard.Against.NullOrWhiteSpace(drugNetwork, nameof(drugNetwork));
+            Number = Guard.Against.NegativeOrZero(number, nameof(number));
+            Adress = Guard.Against.Null(adress, nameof(adress));
+        }
+        catch (ArgumentNullException ex)
+        {
+            Console.WriteLine(ValidationMessage.NullException);
+            throw;
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine(ValidationMessage.IncorrectDataInput);
+            throw;
+        }
+
+        var validator = new DrugStoreValidator();
+        validator.Validate(this);
+        
+        _drugItems = new List<DrugItem>();
+    }
+    
+    /*
+     *  Методы ---------------------------------------------------------------------------------------------------------
+     */
     
     /// <summary>
     /// Добавление связи с препаратом

@@ -1,3 +1,7 @@
+using Ardalis.GuardClauses;
+using LibraryDomain.Primitives;
+using LibraryDomain.Validators;
+
 namespace LibraryDomain.Entities;
 
 /// <summary>
@@ -5,17 +9,9 @@ namespace LibraryDomain.Entities;
 /// </summary>
 public class Country : BaseEntity
 {
-    /// <summary>
-    /// Конструктор с внутренней инициализацией пустой коллекции препаратов
-    /// </summary>
-    /// <param name="name">Название страны</param>
-    /// <param name="code">Код страны</param>
-    public Country(string name, string code)
-    {
-        Name = name;
-        Code = code;
-        _drugs = new List<Drug>();
-    }
+    /*
+     *  Поля -----------------------------------------------------------------------------------------------------------
+     */
 
     /// <summary>
     /// Название страны
@@ -34,6 +30,38 @@ public class Country : BaseEntity
     /// Список препаратов
     /// </summary>
     public IReadOnlyCollection<Drug> Drugs => _drugs.AsReadOnly();
+    
+    /*
+     *  Конструктор ----------------------------------------------------------------------------------------------------
+     */
+    
+    /// <summary>
+    /// Конструктор с внутренней инициализацией пустой коллекции препаратов
+    /// </summary>
+    /// <param name="name">Название страны</param>
+    /// <param name="code">Код страны</param>
+    public Country(string name, string code)
+    {
+        try
+        {
+            Name = Guard.Against.NullOrWhiteSpace(name, nameof(name));
+            Code = Guard.Against.NullOrWhiteSpace(code, nameof(code));
+        }
+        catch (ArgumentNullException e)
+        {
+            Console.WriteLine(ValidationMessage.NullException);
+            throw;
+        }
+        
+        var validator = new CountryValidator();
+        validator.Validate(this);
+        
+        _drugs = new List<Drug>();
+    }
+    
+    /*
+     *  Методы ---------------------------------------------------------------------------------------------------------
+     */
 
     /// <summary>
     /// Добавить препарат в список производимых в стране

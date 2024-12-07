@@ -1,3 +1,6 @@
+using Ardalis.GuardClauses;
+using LibraryDomain.Primitives;
+using LibraryDomain.Validators;
 using LibraryDomain.ValueObjects;
 
 namespace LibraryDomain.Entities;
@@ -7,29 +10,19 @@ namespace LibraryDomain.Entities;
 /// </summary>
 public class Profile : BaseEntity
 {
-    /// <summary>
-    /// Конструктор
-    /// </summary>
-    /// <param name="firstName"></param>
-    /// <param name="lastName"></param>
-    /// <param name="email"></param>
-    public Profile(string firstName, string lastName, string email)
-    {
-        Firstname = firstName;
-        Lastname = lastName;
-        Email = email;
-        _favouriteDrugs = new List<FavouriteDrug>();
-    }
+    /*
+     *  Поля -----------------------------------------------------------------------------------------------------------
+     */
     
     /// <summary>
     /// Имя пользователя
     /// </summary>
-    public string Firstname { get; private set; }
+    public string FirstName { get; private set; }
     
     /// <summary>
     /// Фамилия пользователя
     /// </summary>
-    public string Lastname { get; private set; }
+    public string LastName { get; private set; }
     
     /// <summary>
     /// Электронная почта пользователя
@@ -42,8 +35,46 @@ public class Profile : BaseEntity
     /// </summary>
     public IReadOnlyCollection<FavouriteDrug> FavouriteDrugs => _favouriteDrugs.AsReadOnly();
     
+    /// <summary>
+    /// Адрес покупателя
+    /// </summary>
     public Adress Adress { get; private set; }
     
+    /*
+     *  Конструкторы ---------------------------------------------------------------------------------------------------
+     */
+    
+    /// <summary>
+    /// Конструктор
+    /// </summary>
+    /// <param name="firstName">Имя</param>
+    /// <param name="lastName">Фамилия</param>
+    /// <param name="email">Электронная почта</param>
+    /// <param name="adress">Адрес</param>
+    public Profile(string firstName, string lastName, string email, Adress adress)
+    {
+        try{
+            FirstName = Guard.Against.NullOrEmpty(firstName, nameof(firstName));
+            LastName = Guard.Against.NullOrEmpty(lastName, nameof(lastName));
+            Email = Guard.Against.NullOrEmpty(email, nameof(email));
+            Adress = Guard.Against.Null(adress, nameof(adress));
+        }
+        catch (ArgumentNullException ex)
+        {
+            Console.WriteLine(ValidationMessage.NullException);
+            throw;
+        }
+        
+        var validator = new ProfileValidator();
+        validator.Validate(this);
+        
+        _favouriteDrugs = new List<FavouriteDrug>();
+    }
+    
+    /*
+     *  Методы ---------------------------------------------------------------------------------------------------------
+     */
+
     /// <summary>
     /// Добавление препарата в избранное
     /// </summary>
