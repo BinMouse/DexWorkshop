@@ -47,9 +47,10 @@ public class Profile : BaseEntity
     /// <summary>
     /// Конструктор
     /// </summary>
-    /// <param name="firstName"></param>
-    /// <param name="lastName"></param>
-    /// <param name="email"></param>
+    /// <param name="firstName">Имя</param>
+    /// <param name="lastName">Фамилия</param>
+    /// <param name="email">Электронная почта</param>
+    /// <param name="adress">Адрес</param>
     public Profile(string firstName, string lastName, string email, Adress adress)
     {
         try{

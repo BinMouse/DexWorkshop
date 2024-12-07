@@ -6,7 +6,7 @@ using LibraryDomain.Primitives;
 namespace LibraryDomain.Validators;
 
 /// <summary>
-/// Валидатор для страны.  Проверяет на соответсвие страны ограничениям БД.
+/// Валидатор для страны.  Проверяет оответсвие страны ограничениям бизнесс-логики.
 /// </summary>
 public class CountryValidator : AbstractValidator<Country>
 {

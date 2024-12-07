@@ -4,6 +4,9 @@ using LibraryDomain.Primitives;
 
 namespace LibraryDomain.Validators;
 
+/// <summary>
+/// Валидатор для профиля. Проверяет соответсвие профиля ограничениям бизнесс-логики.
+/// </summary>
 public class ProfileValidator : AbstractValidator<Profile>
 {
     public ProfileValidator()

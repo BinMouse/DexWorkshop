@@ -1,5 +1,8 @@
 namespace LibraryDomain.Primitives;
 
+/// <summary>
+/// Класс, содержащий сообщения для валидации
+/// </summary>
 public static class ValidationMessage
 {
     public const string LenghtRangeMessage = "Поле {PropertyName} должно содержать от {MinLenght} до {MaxLenght} символов";

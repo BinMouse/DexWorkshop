@@ -4,6 +4,9 @@ using LibraryDomain.Primitives;
 
 namespace LibraryDomain.Validators;
 
+/// <summary>
+/// Валидатор для записей аптеки о препаратах. Проверяет соответсвие записи ограничениям бизнесс-логики.
+/// </summary>
 public class DrugItemValidator  : AbstractValidator<DrugItem>
 {
     public DrugItemValidator()

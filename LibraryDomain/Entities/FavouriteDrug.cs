@@ -46,6 +46,12 @@ public class FavouriteDrug
      *  Конструкторы ---------------------------------------------------------------------------------------------------
      */
     
+    /// <summary>
+    /// Конструктор
+    /// </summary>
+    /// <param name="profile">Профиль</param>
+    /// <param name="drug">Препарат</param>
+    /// <param name="store">Аптека</param>
     public FavouriteDrug(Profile profile, Drug drug, DrugStore store)
     {
         try

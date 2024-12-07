@@ -5,7 +5,7 @@ using LibraryDomain.Entities;
 namespace LibraryDomain.Validators;
 
 /// <summary>
-/// Валидатор для препаратов. Проверяет на соответсвие препарата ограничениям БД.
+/// Валидатор для препаратов. Проверяет соответсвие препарата ограничениям бизнесс-логики.
 /// </summary>
 public class DrugValidator : AbstractValidator<Drug>
 {
